@@ -258,10 +258,10 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-Test - 副本" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-循环矩阵乘法优化" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/12/01/Test - 副本/" class="article-date">
+      <a href="/2018/12/01/循环矩阵乘法优化/" class="article-date">
       <time datetime="2018-12-01T04:28:26.000Z" itemprop="datePublished">2018-12-01</time>
 </a>
 
@@ -277,7 +277,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/01/Test - 副本/">Test</a>
+      <a class="article-title" href="/2018/12/01/循环矩阵乘法优化/">循环矩阵乘法优化</a>
     </h1>
   
 
@@ -287,20 +287,21 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <excerpt in="" index="" |="" 首页摘要="">
-          
+        <p><excerpt in="" index="" |="" 首页摘要=""><br>循环矩阵？<br>没听说过。</excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<hr>
+<p>事情是这样的。<br>有种东西叫循环矩阵。<br>$a_1 a_2 a_3 .. a_{n-1} a_n$<br>$a_2 a_3 .. a_{n-1} a_n a_1$<br>$…………….$<br>$a_na_1 a_2a_3..a_{n-1} $<br>这种东西的自乘是啥复杂度呢？<br>我来想一想。<br>$c_{1i} = \sum_{k}a_{1k}*a_{ki}$<br>如果我只求第$1$行呢？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">matrix multi(const matrix &amp;a,const matrix &amp;b)  </span><br><span class="line">&#123;  </span><br><span class="line">    matrix ans;  </span><br><span class="line">    for(int i=0;i&lt;n;i++)  </span><br><span class="line">    &#123;  </span><br><span class="line">        ans.m[0][i]=0;</span><br><span class="line">        for(int j=0;j&lt;n;j++)</span><br><span class="line">            ans.m[0][i]+=a.m[0][j]*b.m[j][i];</span><br><span class="line">        ans.m[0][i]%=mod;</span><br><span class="line">    &#125;</span><br><span class="line">    for(int i=1;i&lt;n;i++)  </span><br><span class="line">        for(int j=0;j&lt;n;j++)  </span><br><span class="line">            ans.m[i][j]=ans.m[i-1][(j+n-1)%n];  </span><br><span class="line">    return ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>注意这种转移：<br>$f[i][j] = f[i-1][(j-1)\mod k]+f[i-1][j].$<br>这种转移直接矩阵乘是肯定可行的。<br>然后你注意它好像是个循环矩阵。<br>$0-&gt;1,1-&gt;1$,$n-1 -&gt; 0,0-&gt;0$。<br>这肯定是循环矩阵对吧！<br>于是拉了个别人的代码把这个题A了……qwq</p>
+</the>
       
-    </excerpt></div>
+    </div>
     
     <div class="article-info article-info-index">
       
       
 
       
-      
-        <p class="article-more-link">
-          <a href="/2018/12/01/Test - 副本/#more">阅读全文 >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>
