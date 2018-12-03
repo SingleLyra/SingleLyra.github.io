@@ -15,14 +15,17 @@
 
 
 
+<meta name="description" content="循环矩阵？没听说过。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Test">
-<meta property="og:url" content="http://yoursite.com/2018/12/01/Test/index.html">
+<meta property="og:title" content="循环矩阵乘法">
+<meta property="og:url" content="http://yoursite.com/2018/12/03/循环矩阵乘法/index.html">
 <meta property="og:site_name">
+<meta property="og:description" content="循环矩阵？没听说过。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-01T04:31:26.031Z">
+<meta property="og:updated_time" content="2018-12-03T08:42:03.369Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Test">
+<meta name="twitter:title" content="循环矩阵乘法">
+<meta name="twitter:description" content="循环矩阵？没听说过。">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -52,7 +55,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Test | </title>
+<title>循环矩阵乘法 | </title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -252,11 +255,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap"><article id="post-Test" class="article article-type-post" itemscope="" itemprop="blogPost">
+      <div class="body-wrap"><article id="post-循环矩阵乘法" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/12/01/Test/" class="article-date">
-      <time datetime="2018-12-01T04:28:26.000Z" itemprop="datePublished">2018-12-01</time>
+      <a href="/2018/12/03/循环矩阵乘法/" class="article-date">
+      <time datetime="2018-12-03T08:40:42.000Z" itemprop="datePublished">2018-12-03</time>
 </a>
 
 
@@ -271,7 +274,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Test
+      循环矩阵乘法
     </h1>
   
 
@@ -288,12 +291,15 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <excerpt in="" index="" |="" 首页摘要=""> 
-
+        <p><excerpt in="" index="" |="" 首页摘要=""><br>循环矩阵？<br>没听说过。</excerpt></p>
 <a id="more"></a>
-<p>This is Test1.<br>This is Test2.<br>This is Test3.</p>
-<p><the rest="" of="" contents="" |="" 余下全文=""><br>This is Test1.<br>This is Test2.<br>This is Test3.<br>This is Test1.<br>This is Test2.<br>This is Test3.</the></p>
-</excerpt>
+<p>循环矩阵？<br>没听说过。</p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<hr>
+<p>事情是这样的。<br>有种东西叫循环矩阵。<br>$a_1 a_2 a_3 .. a_{n-1} a_n$<br>$a_2 a_3 .. a_{n-1} a_n a_1$<br>…………….<br>$a_na_1 a_2a_3..a_{n-1} $<br>这种东西的自乘是啥复杂度呢？<br>我来想一想。<br>c_{1i} = \sum_{k}a_{1k}*a_{ki}<br>如果我只求第1行呢？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">matrix multi(const matrix &amp;a,const matrix &amp;b)  </span><br><span class="line">&#123;  </span><br><span class="line">    matrix ans;  </span><br><span class="line">    for(int i=0;i&lt;n;i++)  </span><br><span class="line">    &#123;  </span><br><span class="line">        ans.m[0][i]=0;</span><br><span class="line">        for(int j=0;j&lt;n;j++)</span><br><span class="line">            ans.m[0][i]+=a.m[0][j]*b.m[j][i];</span><br><span class="line">        ans.m[0][i]%=mod;</span><br><span class="line">    &#125;</span><br><span class="line">    for(int i=1;i&lt;n;i++)  </span><br><span class="line">        for(int j=0;j&lt;n;j++)  </span><br><span class="line">            ans.m[i][j]=ans.m[i-1][(j+n-1)%n];  </span><br><span class="line">    return ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>注意这种转移：<br>$f[i][j] = f[i-1][(j-1)\mod k]+f[i-1][j].$<br>这种转移直接矩阵乘是肯定可行的。<br>然后你注意它好像是个循环矩阵。<br>0-&gt;1,1-&gt;1,n-1 -&gt; 0,0-&gt;0。<br>这肯定是循环矩阵对吧！<br>于是拉了个别人的代码把这个题A了……qwq</p>
+</the>
       
     </div>
     
@@ -301,13 +307,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/12/01/Test/">Test</a></p>
+        <p><span>本文标题:</span><a href="/2018/12/03/循环矩阵乘法/">循环矩阵乘法</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">SingleLyra</a></p>
-        <p><span>发布时间:</span>2018-12-01, 12:28:26</p>
-        <p><span>最后更新:</span>2018-12-01, 12:31:26</p>
+        <p><span>发布时间:</span>2018-12-03, 16:40:42</p>
+        <p><span>最后更新:</span>2018-12-03, 16:42:03</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/12/01/Test/" title="Test">http://yoursite.com/2018/12/01/Test/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/12/01/Test/　　作者: SingleLyra" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/12/03/循环矩阵乘法/" title="循环矩阵乘法">http://yoursite.com/2018/12/03/循环矩阵乘法/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/12/03/循环矩阵乘法/　　作者: SingleLyra" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -319,16 +325,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/12/03/循环矩阵乘法/">
-                    循环矩阵乘法
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/12/01/循环矩阵乘法优化/">
-                    循环矩阵乘法优化
+                <a href="/2018/12/01/Test/">
+                    Test
                 </a>
             </div>
         
@@ -376,7 +376,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Test　| 　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"循环矩阵乘法　| 　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -396,15 +396,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/12/03/循环矩阵乘法/" title="上一篇: 循环矩阵乘法">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/12/01/循环矩阵乘法优化/" title="下一篇: 循环矩阵乘法优化">
+            <a href="/2018/12/01/Test/" title="下一篇: Test">
                 <i class="fa fa-angle-right"></i>
             </a>
         
