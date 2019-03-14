@@ -14,17 +14,18 @@
 <meta name="author" content="SingleLyra">
 
 
-    
-    
 
-
-<meta property="og:type" content="website">
-<meta property="og:title">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="Unit 5Words:1.confound: (vt.) fail to distinguish. e.g. He tells lies so often that I believe that he often confounds fact and fiction(lies). 2.dense: (adj.) difficult to see through / containing a lo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="English_Note">
+<meta property="og:url" content="http://yoursite.com/2018/12/23/English-Note/index.html">
 <meta property="og:site_name">
+<meta property="og:description" content="Unit 5Words:1.confound: (vt.) fail to distinguish. e.g. He tells lies so often that I believe that he often confounds fact and fiction(lies). 2.dense: (adj.) difficult to see through / containing a lo">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-27T04:24:05.606Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title">
+<meta name="twitter:title" content="English_Note">
+<meta name="twitter:description" content="Unit 5Words:1.confound: (vt.) fail to distinguish. e.g. He tells lies so often that I believe that he often confounds fact and fiction(lies). 2.dense: (adj.) difficult to see through / containing a lo">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -50,13 +51,11 @@
 <link rel="stylesheet" href="/css/style.css">
 
 
-    <style> .article { opacity: 0;} </style>
-
 
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title></title>
+<title>English_Note | </title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -65,8 +64,8 @@
     var yiliaConfig = {
         fancybox: true,
         animate: true,
-        isHome: true,
-        isPost: false,
+        isHome: false,
+        isPost: true,
         isArchive: false,
         isTag: false,
         isCategory: false,
@@ -256,94 +255,7 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap">
-  
-    <article id="using-digits" class="article article-type-using" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/12/30/digits/" class="article-date">
-      <time datetime="2018-12-29T17:35:49.000Z" itemprop="datePublished">2018-12-30</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/30/digits/">Using neural nets to recognize handwritten digits</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>人体视觉是世界上的奇迹之一。<br>考虑下面这样的一个手写数字序列：<br><img src="C:\Users\Filene\AppData\Roaming\Typora\typora-user-images\1546105017586.png" alt="1546105017586"><br>大多数人能毫不费力地认出这是504192.但是，毫不费力是骗人(deceptive)的。在我们大脑每个半球(hemisphere)中，人们有一个基本视觉皮质(cortex)，记为$V_1$，包含140,000,000个神经元，在神经元间有10,000,000,000个神经链接。然而，人们的视觉并不仅有一个$V_1$，而是一个串联的皮质。串联里面包括$V_2,V_3,V_4…$，这些皮质做着更加复杂的东西。</p>
-<p>……</p>
-<p>1.In each hemisphere(半球) of our brain, humans have a primary<br>visual cortex(皮质), also known as V1, containing 140 million neurons, with<br>tens of billions of connections between them.  </p>
-<p>2.Most people effortlessly recognize those digits as 504192. That ease is deceptive(欺骗的).</p>
-<p>3.Rather(== however), we humans are stupendously, astoundingly [都是惊人的意思] good at making sense of what our<br>eyes show us. </p>
-<p>4.get lost in a morass(困境) of exceptions and caveats(警告) and special cases.  </p>
-<p>5.without human intervention.(干预)</p>
-<p>6.We’re focusing on handwriting recognition because it’s an excellent<br>prototype(样本) problem for learning about neural networks in general.  </p>
-<p>7.But along the way we’ll develop many key ideas about<br>neural networks, including two important types of artificial(人工的) neuron<br>(the perceptron(感知) and the sigmoid(sig) neuron), and the standard learning<br>algorithm for neural networks, known as stochastic(随机) gradient(梯度) descent(下降).</p>
-<p>如何构建与非门：</p>
-<p>设立$bias = 3,w_1=w_2=-2$.</p>
-<p>则$output = [w_1x_1+w_2x_2+bias&gt;0]$</p>
-<p>分别验证$00,11,01,10$可得。</p>
-<p>构建与门：</p>
-<p>设立$bias = -3,w_1=w_2=2$即可。</p>
-<p>另外，与非是基本运算，你可以通过与非计算任何的位运算。</p>
-<p>a xor b=(a nand a nand b) = ​ </p>
-<p>Don’t panic if you’re not comfortable with partial derivatives! </p>
-<p><strong>perceptrons</strong>:0/1感知器，值为$[\sum w_ix_i+b &gt; 0]$</p>
-<p>把perceptrons改为sigmoid neurons，结果也随之变化。</p>
-<p><strong>MLP terminology</strong></p>
-<p>If we did have<br>loops, we’d end up with situations where the input to the σ<br>function depended on the output.  That’d be hard to make sense of, and<br>so we don’t allow such loops.</p>
-<p><a href="http://en.wikipedia.org/wiki/Recurrent_neural_network" target="_blank" rel="noopener">recurrent   neural networks</a>：RNN，递归神经网络</p>
-<p>However, there are other models of artificial neural networks in which<br>feedback loops are possible.  These models are called<br><a href="http://en.wikipedia.org/wiki/Recurrent_neural_network" target="_blank" rel="noopener">recurrent   neural networks</a>. The idea in these models is to have neurons which<br>fire for some limited duration of time, before becoming quiescent.<br>That firing can stimulate other neurons, which may fire a little while<br>later, also for a limited duration.  That causes still more neurons to<br>fire, and so over time we get a cascade of neurons firing.  Loops<br>don’t cause problems in such a model, since a neuron’s output only<br>affects its input at some later time, not instantaneously.(存疑QAQ)</p>
-<p>C(w,b) = $\frac 1 {2n}\sum_x mode [(y(x) - output)]^2 $</p>
-<p>其中$y(x)$为这个输入理论上得到的答案。</p>
-<p><em>gradient descent</em></p>
-<p>1/2m (O0 + O1x^i + y^i)^2</p>
-<p>dO0-&gt;1/m(O0 + O1x^i + y^i)</p>
-<p>dO1-&gt;x^i/m(O0 + O1x^i + y^i)</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-English-Note" class="article article-type-post" itemscope="" itemprop="blogPost">
+      <div class="body-wrap"><article id="post-English-Note" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2018/12/23/English-Note/" class="article-date">
@@ -361,12 +273,19 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/23/English-Note/">English_Note</a>
+    <h1 class="article-title" itemprop="name">
+      English_Note
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -497,79 +416,91 @@
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
   
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="record-Codeforces" class="article article-type-record" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/12/06/Codeforces/" class="article-date">
-      <time datetime="2018-12-06T14:43:33.000Z" itemprop="datePublished">2018-12-06</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/06/Codeforces/">Codeforces</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p><excerpt in="" index="" |="" 首页摘要=""><br>这里汇聚了一些Codeforces的做题记录，正在缓慢鸽新中。</excerpt></p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a href="/2018/12/06/Codeforces/#more">阅读全文 >></a>
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/12/23/English-Note/">English_Note</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">SingleLyra</a></p>
+        <p><span>发布时间:</span>2018-12-23, 18:34:51</p>
+        <p><span>最后更新:</span>2018-12-27, 12:24:05</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/12/23/English-Note/" title="English_Note">http://yoursite.com/2018/12/23/English-Note/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/12/23/English-Note/　　作者: SingleLyra" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
-      
-      <div class="clearfix"></div>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
     </div>
-    
-  </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2018/12/30/digits/">
+                    Using neural nets to recognize handwritten digits
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/12/06/Codeforces/">
+                    Codeforces
+                </a>
+            </div>
+        
+    </nav>
+
   
 </article>
 
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Unit-5"><span class="toc-number">1.</span> <span class="toc-text">Unit 5</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Words"><span class="toc-number">1.1.</span> <span class="toc-text">Words:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Unit-6-amp-amp-7"><span class="toc-number">2.</span> <span class="toc-text">Unit 6&amp;&amp;7</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Unit-8"><span class="toc-number">3.</span> <span class="toc-text">Unit 8</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#English-II-临时背QAQ"><span class="toc-number">3.1.</span> <span class="toc-text">English II(临时背QAQ)</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"English_Note　| 　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
 
 
 
@@ -577,9 +508,35 @@
 
 
 
+    
 
-  
-  
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2018/12/30/digits/" title="上一篇: Using neural nets to recognize handwritten digits">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/12/06/Codeforces/" title="下一篇: Codeforces">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/12/30/digits/">Using neural nets to recognize handwritten digits</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/23/English-Note/">English_Note</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/06/Codeforces/">Codeforces</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
